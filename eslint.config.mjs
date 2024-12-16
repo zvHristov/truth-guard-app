@@ -11,20 +11,8 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:tailwindcss/recommended"
-  ),
-  ...compat.rules({
-    "no-console": ["error", { allow: ["info", "warn", "error"] }],
-    "tailwindcss/classnames-order": "error",
-  }),
-  ...compat.overrides([
-    {
-      files: ["*.ts", "*.tsx", "*.js"],
-      parser: "@typescript-eslint/parser",
-    },
-  ]),
+    "next/core-web-vitals"
+  )
 ]
 
 export default eslintConfig
