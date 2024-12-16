@@ -1,20 +1,53 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# Project Title
 
+# Fact-Check AI
+
+**Fact-Check** is a web application that allows users to analyze articles and news for fact-checking by using powerful AI models to validate the accuracy of the content. The project uses **OpenAI** for fact-checking, **Next.js** for server-side and client-side application, and **Axios** and **Cheerio** for scraping web content.
+
+## Key Features
+
+- **Content Analysis**: Extracts article content from a URL using Cheerio and Axios.
+- **Easy Expansion**: The project's structure is designed to be easily extensible with new text analysis and fake news detection features.
+
+## Technologies
+
+- **Next.js**: A React framework for building server-side rendered applications.
+- **Axios**: A promise-based HTTP client for making requests to fetch content from web pages.
+
+
+## How to Run the Project Locally
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/zvHristov/truth-guard-app.git
+   cd truth-guard-app
+   ```
+2. Install dependencies:
+```bash
+   pnpm install
+   ```
+3. git switch to dev branch
+```bash
+    git checkout dev
+```
+4. Run the development server:
+```bash
+   pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+#How It Works
+
+    Enter the URL of an article or news that you want to verify.
+    The application will extract the content of the page, including the title and the main text.
+    It will then analyze the content and validate whether the information is true or not.
+    The analysis results, including whether the content is accurate or not, will be returned to the user.
+
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
