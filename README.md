@@ -1,11 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-
-# Project Title
-
 # Fact-Check AI
 
-**Fact-Check** is a web application that allows users to analyze articles and news for fact-checking by using powerful AI models to validate the accuracy of the content. The project uses **OpenAI** for fact-checking, **Next.js** for server-side and client-side application, and **Axios** and **Cheerio** for scraping web content.
+**Fact-Check** is a web application that allows users to analyze articles and news for fact-checking by using powerful AI models to validate the accuracy of the content. The project uses Next.js for the front-end and Axios for fetching content from web pages. The application is designed to be easily extensible with new text analysis and fake news detection features.
 
 ## Key Features
 
@@ -31,7 +28,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
    ```
 3. git switch to dev branch
 ```bash
-    git checkout dev
+    git switch dev
 ```
 4. Run the development server:
 ```bash
