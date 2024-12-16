@@ -9,5 +9,5 @@ const prettierCommand = "prettier --write"
 
 module.exports = {
   "*.{js,jsx,ts,tsx}": [prettierCommand, buildEslintCommand],
-  "*.{json,css,md}": [prettierCommand],
+  "*.{json,css,md}": [prettierCommand]
 }
