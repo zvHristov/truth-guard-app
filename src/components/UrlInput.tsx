@@ -27,14 +27,15 @@ const UrlInput: React.FC<UrlInputProps> = ({ onAnalyze }) => {
   };
 
   return (
-    <div>
+    <div className='form-control '>
       <input
         type="text"
         placeholder="Enter URL"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
+        className='input with-base-style with-placeholder'
       />
-      <button onClick={handleAnalyze} disabled={loading}>
+      <button className='btn ml-4' onClick={handleAnalyze} disabled={loading}>
         {loading ? 'Analyzing...' : 'Analyze'}
       </button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
