@@ -70,8 +70,7 @@ console.log(result, '  data text')
             onChange={(e) => setContent(e.target.value)}
             rows={8}
             className="w-full text-area"
-            color="#f5f5f5" 
-            variant="soft"
+            color="#f5f5f5"
           />
           <Button 
             onClick={analyzeContent}
