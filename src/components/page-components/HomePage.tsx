@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import UrlInput from '@/components/UrlInput';
 import { ApiResponseI } from '@/components/InfoPage';
 import InfoPage from '@/components/InfoPage';
+import PropagandaChecker from '@/components/PropagandaChecker';
 
 export function HomeComponent() {
   const [url, setUrl] = useState('');
@@ -38,9 +39,16 @@ export function HomeComponent() {
     }
   };
   return (
-    <div>
-        <UrlInput onAnalyze={analyzeUrl} />
-        {result && (<InfoPage {...result} />)}
+    <div className="container mx-auto flex">
+        <section className="w-1/2 mx-auto p-4">
+        <h2 className="text-3xl font-bold mb-4">Url Analyzer</h2>
+          <UrlInput onAnalyze={analyzeUrl} />
+          {result && (<InfoPage {...result} />)}
+        </section>
+       <section className="w-1/2  mx-auto p-4">
+       <h2 className="text-3xl font-bold mb-4">Text Analyzer</h2>
+        <PropagandaChecker />
+       </section>
     </div>
   )
 }
