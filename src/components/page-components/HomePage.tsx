@@ -5,7 +5,7 @@ import UrlInput from '@/components/UrlInput';
 import { ApiResponseI } from '@/components/InfoPage';
 import InfoPage from '@/components/InfoPage';
 
-const HomePage = () => {
+export function HomeComponent() {
   const [url, setUrl] = useState('');
   const [result, setResult] = useState<null | ApiResponseI>(null);
   const [error, setError] = useState<string | null>(null);
@@ -44,5 +44,3 @@ const HomePage = () => {
     </div>
   )
 }
-
-export default HomePage
