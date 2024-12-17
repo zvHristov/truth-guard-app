@@ -4,10 +4,11 @@ export interface ApiResponseI {
     wordCount: number;
     containsClickbait: boolean;
   };
+  factCheckResult: string;
 }
 
 const InfoPage = (props: ApiResponseI) => {
-  const { title, analysis } = props;
+  const { title, analysis, factCheckResult } = props;
 
   return (
     <div>
@@ -15,6 +16,7 @@ const InfoPage = (props: ApiResponseI) => {
     <p>Title: {title}</p>
     <p>Contains Clickbait: {analysis.containsClickbait ? 'Yes' : 'No'}</p>
     <p>Word Count: {analysis.wordCount}</p>
+    <p>Fact Check Result: {factCheckResult}</p>
   </div>
   );
 };

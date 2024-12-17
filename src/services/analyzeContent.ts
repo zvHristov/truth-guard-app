@@ -1,4 +1,4 @@
-export interface AnalysisResult {
+export interface AnalysisResultI {
     wordCount: number;
     containsClickbait: boolean;
   }
@@ -8,7 +8,7 @@ export interface AnalysisResult {
  * @param text The content of the web page.
  * @returns returns analysis result.
  */
-export const analyzeContent = (text: string): AnalysisResult => {
+export const analyzeContent = (text: string): AnalysisResultI => {
     const clickbaitKeywords = ['shocking', 'unbelievable', 'amazing'];
     const containsClickbait = clickbaitKeywords.some((keyword) =>
       text.toLowerCase().includes(keyword),
