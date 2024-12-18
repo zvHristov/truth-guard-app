@@ -14,7 +14,7 @@ const openai = new OpenAI({
 export const factCheckWithOpenAI = async (text: string) => {
   try {
     const response: any = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',  // или 'gpt-3.5-turbo'
+      model: 'gpt-4o-mini',
       messages: [
         { role: 'system', content: FACT_CHECK_EN_SYSTEM_AI_PROMPT },
         { role: 'user', content: `${FACT_CHECK_EN_USER_AI_PROMPT} ${text}` },
