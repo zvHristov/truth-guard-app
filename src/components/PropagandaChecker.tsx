@@ -97,29 +97,29 @@ console.log(result, '  data text')
         <Card className="p-6 space-y-6">
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold mb-2">Достоверност на съдържанието:</h3>
+              <h3 className="font-semibold mb-2">{`Content Credibility:`}</h3>
               <Progress value={result.truthScore} className="h-2" color="crimson" />
-              <p className="text-sm text-gray-600 mt-1">{result.truthScore}% достоверност</p>
+              <p className="text-sm text-gray-600 mt-1">{`${result.truthScore}% Credibility`}</p>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-2">Ниво на пропаганда:</h3>
+              <h3 className="font-semibold mb-2">{`Propaganda Level:`}</h3>
               <Progress 
                 value={result.propagandaScore} 
                 className="h-2" 
            
                 color="crimson"
               />
-              <p className="text-sm text-gray-600 mt-1">{result.propagandaScore}% пропагандно съдържание</p>
+              <p className="text-sm text-gray-600 mt-1">{`${result.propagandaScore}% Propaganda Content`}</p>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-2">Подробен анализ:</h3>
+              <h3 className="font-semibold mb-2">{`Detailed Analysis:`}</h3>
               <p className="text-gray-700">{result.analysis}</p>
             </div>
             {result.warningFlags.length > 0 && (
               <div>
-                <h3 className="font-semibold mb-2">Предупреждения:</h3>
+                <h3 className="font-semibold mb-2">{`Warnings:`}</h3>
                 <ul className="list-disc pl-5 space-y-1">
                   {result.warningFlags.map((flag: any, index: number) => (
                     <li key={index} className="text-gray-700">
@@ -136,7 +136,7 @@ console.log(result, '  data text')
               <div className="flex items-start gap-2">
                 <Info className="h-5 w-5 text-blue-500 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold mb-2">Препоръки за проверка:</h3>
+                  <h3 className="font-semibold mb-2">{`Recommendations for Fact-Checking:`}</h3>
                   <ul className="list-disc pl-5 space-y-1">
                   {result.recommendations &&
                      result?.recommendations.map((rec, index) => (

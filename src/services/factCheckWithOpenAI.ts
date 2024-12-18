@@ -1,20 +1,14 @@
 import { OpenAI } from 'openai';
-
-const BG_CONTEXT_AI_TEXT_PROMPT = `Анализирай следния текст за наличие на пропаганда, дезинформация или подвеждащо съдържание. 
-        Оцени достоверността на информацията, като посочиш конкретни примери и обясниш защо определени части могат да бъдат подвеждащи.
-        
-        Моля, обърни внимание на:
-        1. Емоционално натоварен език
-        2. Липса на източници или съмнителни източници
-        3. Логически грешки или манипулативни аргументи
-        4. Изопачени факти или статистики
-        5. Конспиративни теории
-        
-        Текст за анализ:`;
+import { 
+    FACT_CHECK_EN_SYSTEM_AI_PROMPT, 
+    FACT_CHECK_EN_USER_AI_PROMPT, 
+    PROPAGANDA_CHECKER_EN_CONTEXT_AI_TEXT_PROMPT, 
+    PROPAGANDA_CHECKER_EN_SYSTEM_AI_PROMPT,
+    PROPAGANDA_CHECKER_EN_TELL_ME_AI_TEXT_PROMPT,
+} from '@/const';
 
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_SECRET_KEY,
-//   baseUrl: 'https://api.openai.com/v1',
 });
 
 export const factCheckWithOpenAI = async (text: string) => {
@@ -22,8 +16,8 @@ export const factCheckWithOpenAI = async (text: string) => {
     const response: any = await openai.chat.completions.create({
       model: 'gpt-4o-mini',  // или 'gpt-3.5-turbo'
       messages: [
-        { role: 'system', content: 'You are an expert in fact-checking and providing accurate information.' },
-        { role: 'user', content: `Please analyze the following statement and tell me whether it's true or false: ${text}` },
+        { role: 'system', content: FACT_CHECK_EN_SYSTEM_AI_PROMPT },
+        { role: 'user', content: `${FACT_CHECK_EN_USER_AI_PROMPT} ${text}` },
       ],
     });
 
@@ -37,23 +31,14 @@ export const factCheckWithOpenAI = async (text: string) => {
 export const propagandaCheckerOpenAI = async (content: string) => {
     try {
 
-        const prompt = `${BG_CONTEXT_AI_TEXT_PROMPT} ${content}
-        
-        Моля, предостави структуриран анализ във формат:
-        {
-          "truthScore": число от 0 до 100,
-          "propagandaScore": число от 0 до 100,
-          "analysis": подробен анализ,
-          "warningFlags": списък с конкретни примери на проблемно съдържание,
-          "recommendations": препоръки за проверка на фактите
-        }`;
+        const prompt = `${PROPAGANDA_CHECKER_EN_CONTEXT_AI_TEXT_PROMPT} ${content} ${PROPAGANDA_CHECKER_EN_TELL_ME_AI_TEXT_PROMPT}`;
 
       const completion = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',  // или 'gpt-3.5-turbo'
+        model: 'gpt-4o-mini',
         messages: [
             {
               role: "system",
-              content: "Ти си експерт по проверка на факти и анализ на дезинформация. Твоята роля е да анализираш текст за наличие на пропаганда и подвеждащо съдържание, като предоставяш обективна и подробна оценка."
+              content: PROPAGANDA_CHECKER_EN_SYSTEM_AI_PROMPT
             },
             {
               role: "user",
