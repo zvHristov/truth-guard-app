@@ -45,7 +45,7 @@ export const PROPAGANDA_CHECKER_EN_TELL_ME_AI_TEXT_PROMPT = `Please provide a st
 
 export const PROPAGANDA_CHECKER_EN_SYSTEM_AI_PROMPT = `You are an expert in fact-checking and misinformation analysis. Your role is to analyze text for the presence of propaganda and misleading content, providing an objective and detailed assessment.`;
 
-export const FACT_CHECK_BG_SYSTEM_AI_PROMPT = `Ти е експерт във фактовото проверка и предоставя точна информация.`;
+export const FACT_CHECK_BG_SYSTEM_AI_PROMPT = `Ти си експерт във фактовото проверка и предоставя точна информация.`;
 export const FACT_CHECK_BG_USER_AI_PROMPT = `Моля, анализирайте следното твърдение и ми кажете дали е вярно или невярно:`;
 
 export const FACT_CHECK_EN_SYSTEM_AI_PROMPT = `You are an expert in fact-checking and providing accurate information.`;
